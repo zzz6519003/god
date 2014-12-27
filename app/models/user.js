@@ -35,7 +35,7 @@ var UserSchema = new Schema({
 });
 
 //User.path('title').required(true, 'Article title cannot be blank');
-UserSchema.path("email").required(true, "Email cannot be blank");
+//UserSchema.path("email").required(true, "Email cannot be blank");
 //ArticleSchema.path('body').required(true, 'Article body cannot be blank');
 
 /**
@@ -50,6 +50,7 @@ UserSchema
     this.hashed_password = this.encryptPassword(password);
   })
   .get(function() { return this._password });
+
 
 /**
  * Validations
@@ -187,5 +188,4 @@ UserSchema.statics = {
       .exec(cb);
   }
 }
-
 mongoose.model('User', UserSchema);

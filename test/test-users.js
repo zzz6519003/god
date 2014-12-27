@@ -26,6 +26,16 @@ describe('Users', function () {
         })
       })
 
+      agent
+        .post('/articles')
+        .field('title', '')
+        .field('body', 'foo')
+        .expect('Content-Type', /html/)
+        .expect(200)
+        .expect(/Article title cannot be blank/)
+        .end(done)
+
+
       it('no email - should respond with errors'
         , function (done) {
         request(app)
