@@ -36,7 +36,7 @@ var ArticleSchema = new Schema({
   title: {type : String, default : '', trim : true},
   body: {type : String, default : '', trim : true},
   user: {type : Schema.ObjectId, ref : 'User'},
-  rating: { type : Number, default : 0 },
+  rating: { type : Number, default : 1 },
   comments: [{
     body: { type : String, default : '' },
     user: { type : Schema.ObjectId, ref : 'User' },

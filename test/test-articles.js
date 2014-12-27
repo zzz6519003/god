@@ -167,6 +167,32 @@ describe('Articles', function () {
           })
         })
       })
+
+      describe('Add rating to articles', function() {
+        var rating;
+
+        it("should redirect to the new article page", function (done) {
+          agent
+            .post('/articles')
+            .field('title', 'ztitle')
+            .field('body', 'zbody')
+            .expect('Content-Type', /plain/)
+            .expect('Location', /\/articles\//)
+            .expect(302)
+            .expect(/Moved Temporarily/)
+            .end(done)
+        })
+
+        it("new article should have a rating of one", function(done) {
+          Article.findOne({ title: "ztitle" })
+            .exec(function(err, article) {
+              should.not.exist(err)
+              article.rating.should.equal(1)
+              done()
+            })
+        })
+
+      })
     })
   })
 
