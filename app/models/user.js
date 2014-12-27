@@ -34,6 +34,10 @@ var UserSchema = new Schema({
   linkedin: {}
 });
 
+//User.path('title').required(true, 'Article title cannot be blank');
+UserSchema.path("email").required(true, "Email cannot be blank");
+//ArticleSchema.path('body').required(true, 'Article body cannot be blank');
+
 /**
  * Virtuals
  */

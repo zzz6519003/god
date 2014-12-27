@@ -134,7 +134,7 @@ ArticleSchema.methods = {
 
   addRating: function (cb) {
     this.rating++;
-    cb();
+    if (cb) { cb(); }
   },
 
   /**
