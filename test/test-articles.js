@@ -192,6 +192,15 @@ describe('Articles', function () {
             })
         })
 
+        it("it I add rating, should increase by 1", function(done) {
+          Article.findOne({ title: "ztitle" })
+            .exec(function(err, article) {
+              article.addRating()
+              article.rating.should.equal(2)
+              done()
+            })
+        })
+
       })
     })
   })
