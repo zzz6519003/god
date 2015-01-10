@@ -85,6 +85,11 @@ exports.create = function (req, res) {
   });
 };
 
+exports.addRating = function(req, res) {
+  req.article.addRating();
+  return res.redirect('/articles/'+ req.article._id);
+}
+
 /**
  * Edit an article
  */

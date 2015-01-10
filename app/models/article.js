@@ -115,6 +115,7 @@ ArticleSchema.methods = {
    */
 
   addComment: function (user, comment, cb) {
+    console.log("wori")
     var notify = require('../mailer');
 
     this.comments.push({
@@ -134,6 +135,7 @@ ArticleSchema.methods = {
 
   addRating: function (cb) {
     this.rating++;
+    this.save(cb)
     if (cb) { cb(); }
   },
 

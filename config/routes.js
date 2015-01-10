@@ -96,6 +96,7 @@ module.exports = function (app, passport) {
   app.get('/articles/:id/edit', articleAuth, articles.edit);
   app.put('/articles/:id', articleAuth, articles.update);
   app.delete('/articles/:id', articleAuth, articles.destroy);
+  app.post('/articles/:id/UP', articleAuth, articles.addRating);
 
   // home route
   app.get('/', articles.index);
