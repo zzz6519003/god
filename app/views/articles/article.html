@@ -1,7 +1,7 @@
 <div class="article">
   <h3>
     <a href="{{ '/articles/' + article._id }}" title="{{ article.title }}">
-      {{ article.title }}
+      {{ article.title + " 热度 " + article.rating }}
     </a>
   </h3>
   <p>{{ article.body }}</p>

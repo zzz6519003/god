@@ -189,7 +189,7 @@ ArticleSchema.statics = {
 
     this.find(criteria)
       .populate('user', 'name username')
-      .sort({'createdAt': -1}) // sort by date
+      .sort({'rating': -1}) // sort by date
       .limit(options.perPage)
       .skip(options.perPage * options.page)
       .exec(cb);
