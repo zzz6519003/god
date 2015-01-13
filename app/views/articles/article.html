@@ -11,7 +11,7 @@
   {% if (article.user) %}
     &nbsp; - &nbsp;
     <span>Author: </span>
-    <a href="{{ '/users/' + article.user._id }}">
+    <a href="{{ '/users/name/' + article.user.username }}">
       {{ article.user.name || article.user.username }}
     </a>
   {% endif %}

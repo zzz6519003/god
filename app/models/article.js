@@ -133,6 +133,7 @@ ArticleSchema.methods = {
     this.save(cb);
   },
 
+
   addRating: function (cb) {
     this.rating++;
     this.save(cb)
@@ -194,6 +195,7 @@ ArticleSchema.statics = {
       .skip(options.perPage * options.page)
       .exec(cb);
   }
+
 }
 
 mongoose.model('Article', ArticleSchema);

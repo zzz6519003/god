@@ -184,8 +184,11 @@ UserSchema.statics = {
   load: function (options, cb) {
     options.select = options.select || 'name username';
     this.findOne(options.criteria)
-      .select(options.select)
+      // .select(options.select)
       .exec(cb);
-  }
+  },
+
+
+
 }
 mongoose.model('User', UserSchema);

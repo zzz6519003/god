@@ -6,6 +6,8 @@
 var mongoose = require('mongoose');
 var User = mongoose.model('User');
 var utils = require('../../lib/utils');
+var Article = mongoose.model('Article');
+
 
 /**
  * Load
@@ -16,12 +18,32 @@ exports.load = function (req, res, next, id) {
     criteria: { _id : id }
   };
   User.load(options, function (err, user) {
+    console.log(user)
     if (err) return next(err);
     if (!user) return next(new Error('Failed to load User ' + id));
     req.profile = user;
     next();
   });
 };
+
+exports.loadName = function(req, res, next, userName) {
+  var options = {
+    criteria: { username : userName}
+  };
+  User.load(options, function(err, user) {
+    if (err) {
+      next(err);
+
+    }
+    if (!user) {
+
+      return next(new Error('Failed to load User ' + userName));
+    }
+    req.profile = user;
+    next();
+
+  })
+}
 
 /**
  * Create user
