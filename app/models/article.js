@@ -115,7 +115,6 @@ ArticleSchema.methods = {
    */
 
   addComment: function (user, comment, cb) {
-    console.log("wori")
     var notify = require('../mailer');
 
     this.comments.push({
