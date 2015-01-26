@@ -18,7 +18,7 @@ exports.load = function (req, res, next, id) {
     criteria: { _id : id }
   };
   User.load(options, function (err, user) {
-    console.log(user)
+//    console.log(user)
     if (err) return next(err);
     if (!user) return next(new Error('Failed to load User ' + id));
     req.profile = user;
@@ -75,9 +75,23 @@ exports.create = function (req, res) {
 
 exports.show = function (req, res) {
   var user = req.profile;
+
+//  utils.findByParam(article.comments, { id: id }, function (err, comment) {
+//    if (err) return next(err);
+//    req.comment = comment;
+//    next();
+//  });
+  console.log(user)
+  var articles = Article.find({ user : user._id }, function(err, articles) {console.log(articles[0])})
+
+//  articles = Article.find();
+  user.articles = articles;
+//  console.log(articles)
+//  res.send("haha")
   res.render('users/show', {
     title: user.name,
     user: user
+//    articles: articles
   });
 };
 
