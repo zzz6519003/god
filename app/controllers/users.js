@@ -82,17 +82,24 @@ exports.show = function (req, res) {
 //    next();
 //  });
   console.log(user)
-  var articles = Article.find({ user : user._id }, function(err, articles) {console.log(articles[0])})
+  var articles = null;
+  Article.find({ user : user._id }, function(err, article) {
+    articles = article
+
+    user.ar = "sdf";
+    console.log(articles)
+    res.render('users/show', {
+      title: user.name,
+      user: user,
+      articles: articles
+    });
+
+    console.log(articles)
+
+  });
 
 //  articles = Article.find();
-  user.articles = articles;
-//  console.log(articles)
-//  res.send("haha")
-  res.render('users/show', {
-    title: user.name,
-    user: user
-//    articles: articles
-  });
+
 };
 
 exports.signin = function (req, res) {};
