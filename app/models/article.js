@@ -47,7 +47,14 @@ var ArticleSchema = new Schema({
     cdnUri: String,
     files: []
   },
-  createdAt  : {type : Date, default : Date.now}
+  createdAt  : {type : Date, default : Date.now},
+
+  ticketType: {type : String},
+  ticketProject: {type : String},
+  ticketPhase: {type : String},
+
+  purpose: {type : String},
+  region: {type : String}
 });
 
 /**
