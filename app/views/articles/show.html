@@ -7,6 +7,8 @@
   <div class="row">
     <div class="col-md-8">
       <p>{{ article.body  }}</p>
+      <p>工单类型:{{ article.ticketType }}</p>
+      <p>工单项目:{{ article.ticketProject }}</p>
       <p>目的:{{ article.purpose }}</p>
       <div class="meta">
         {% if (article.user) %}
@@ -47,12 +49,12 @@
 
   </form>
 
-<form action="{{ '/articles/' + article.id + '/UP'}}" method="post">
-    <br>
-    <input type="hidden" name="_csrf" value="{{ csrf_token }}">
-    <input type="hidden" name="_method" value="UP">
-    <button class="btn btn-info" type="submit">赞！</button>
-</form>
+<!--<form action="{{ '/articles/' + article.id + '/UP'}}" method="post">-->
+    <!--<br>-->
+    <!--<input type="hidden" name="_csrf" value="{{ csrf_token }}">-->
+    <!--<input type="hidden" name="_method" value="UP">-->
+    <!--<button class="btn btn-info" type="submit">赞！</button>-->
+<!--</form>-->
   <br>
   <h3>Comments</h3>
   {% for comment in article.comments %}

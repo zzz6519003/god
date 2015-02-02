@@ -54,7 +54,13 @@ var ArticleSchema = new Schema({
   ticketPhase: {type : String},
 
   purpose: {type : String},
-  region: {type : String}
+  region: {type : String},
+  sourceType: {type : String},
+  urgent: {type : String},
+  hardwareRequirement: { type : String },
+  networkRequirement: { type : String },
+  systemRequirement: { type : String }
+
 });
 
 /**
